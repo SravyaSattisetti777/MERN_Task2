@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21BEC7260 Insta Login Page</title>
+
+    <!-- Link to Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            margin-bottom: 20px;
+        }
+
+        .shadow-box {
+            background-color: #f0f0f0;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+            height: 400px;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 25px;
+            margin-top: 40px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            width: 30px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .login-btn {
+            background-color: rgb(12, 106, 221);
+            color: #fff;
+            padding: 10px 130px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-btn:hover {
+            transition: ease 0.5s blue;
+        }
+
+        .login-btn:hover {
+            background-color: #19427b;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: row;
+            margin-top: 10px;
+        }
+
+        .forgot-password {
+            color: #3498db;
+            text-decoration: none;
+            margin-top: 20px;
+            margin-left: 60px;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .signup-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 0px;
+        }
+
+        #rememberMe, #rememberme {
+            margin-top: 20px;
+        }
+
+        #rememberme {
+            margin-left: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="shadow-box">
+            <img src="insta.jpg" alt="Logo" class="logo">
+            <div class="input-group">
+                <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                <input type="password" placeholder="Password">
+            </div>
+            <button class="login-btn" onclick="login()">Log In</button>
+            <div class="checkbox-group">
+                <input type="checkbox" id="rememberMe"><label for="rememberMe" id="rememberme">Remember me</label>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+        </div>
+    </div>
+    <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Sign up here.</a></p>
+    <script>
+        function login() {
+            var username = document.querySelector('input[type="text"]').value;
+            var password = document.querySelector('input[type="password"]').value;
+            var remember = document.getElementById("rememberMe").checked;
+
+            // Add your login logic here
+
+            console.log("Username: " + username);
+            console.log("Password: " + password);
+            console.log("Remember Me: " + remember);
+        }
+    </script>
+</body>
+</html>

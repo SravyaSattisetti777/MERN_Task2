@@ -1,0 +1,13 @@
+.container {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.error-message {
+    color: red;
+}
+
+.invalid-feedback.text-danger{
+    margin-left: 25px;
+}

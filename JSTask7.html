@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21BEC7260 Train Animation</title>
+    <style>
+        p{
+            color: rgb(8, 8, 149);
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        img{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <img id="myimg" src="Train.jpg" />
+        <center>
+           <p>Click the following buttons to handle the animation</p>
+           <input type="button" value="Start" onclick="moveRight();" />
+           <input type="button" value="Stop" onclick="stop();" />
+        </center>
+     </form>
+     <script type="text/javascript">
+        var img = null;
+        var isMoving = false;
+    
+        function init() {
+            img = document.getElementById('myimg');
+            img.style.position = 'relative';
+            img.style.left = '20px';
+        }
+    
+        function moveRight() {
+            if (!isMoving) {
+                isMoving = true;
+                moveTrain();
+            }
+        }
+    
+        function stop() {
+            isMoving = false;
+        }
+    
+        function moveTrain() {
+            if (isMoving) {
+                img.style.left = parseInt(img.style.left) + 100 + 'px';
+                setTimeout(moveTrain, 500); // Move the train every 1000 milliseconds (1 second)
+            }
+        }
+    
+        window.onload = init;
+    </script>
+</body>
+</html>

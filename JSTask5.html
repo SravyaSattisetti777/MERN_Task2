@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21BEC7260 Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: auto;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            margin-top: 160px;
+            margin-left: 550px;
+        }
+
+        label {
+            flex: 1;
+            margin-right: 10px;
+            text-align: right;
+        }
+
+        input[type="text"],
+        textarea {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 250px;
+        }
+
+        .error-text {
+            color: red;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            margin-left: 85px;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form id="sampleForm" onsubmit="return validateForm()">
+        <table class="form-group">
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" class="error-border" name="name" /></td>
+                <td><span id="nameError" class="error-text"></span></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="text" id="email" class="error-border" name="email" /></td>
+                <td><span id="emailError" class="error-text"></span></td>
+            </tr>
+            <tr>
+                <td><label for="website">Website:</label></td>
+                <td><input type="text" id="website" class="error-border" name="website" /></td>
+                <td><span id="websiteError" class="error-text"></span></td>
+            </tr>
+            <tr>
+                <td><label for="message">Message:</label></td>
+                <td><textarea id="message" class="error-border" name="message"></textarea></td>
+                <td><span id="messageError" class="error-text"></span></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function validateForm() {
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const websiteInput = document.getElementById('website');
+            const messageInput = document.getElementById('message');
+    
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const websiteError = document.getElementById('websiteError');
+            const messageError = document.getElementById('messageError');
+    
+            nameError.textContent = '';
+            emailError.textContent = '';
+            websiteError.textContent = '';
+            messageError.textContent = '';
+
+            nameInput.classList.remove('error-border');
+            emailInput.classList.remove('error-border');
+            websiteInput.classList.remove('error-border');
+            messageInput.classList.remove('error-border');
+    
+            let isValid = true;
+    
+            if (nameInput.value.trim() === '') {
+                nameInput.style.borderColor = "#e60000";
+                nameError.textContent = 'This field is required';
+                isValid = false;
+            }
+    
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(emailInput.value)) {
+                emailInput.style.borderColor = "#e60000";
+                emailError.textContent = 'A valid email address is required';
+                isValid = false;
+            }
+    
+            const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+            if (!urlPattern.test(websiteInput.value)) {
+                websiteInput.style.borderColor = "#e60000";
+                websiteError.textContent = 'A valid URL is required';
+                isValid = false;
+            }
+    
+            if (messageInput.value.trim() === '') {
+                messageInput.style.borderColor = "#e60000";
+                messageError.textContent = 'This field is required';
+                isValid = false;
+            }
+            return isValid;
+        }
+    </script>
+</body>
+</html>
